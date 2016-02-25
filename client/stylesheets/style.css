@@ -14,12 +14,6 @@ body {
   min-width: 320px;
 }
 
-@media only screen and (min-width: 993px) {
-  #content {
-    margin-left: 240px;
-  }
-}
-
 footer {
   position: absolute;
   bottom: 0;
