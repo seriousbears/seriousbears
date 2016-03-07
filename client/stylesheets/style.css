@@ -46,3 +46,6 @@ footer > .content {
     width: 98%;
   }
 }
+
+.side-nav a {color: #FFF !important;}
+.side-nav {background-color: #505050 !important;}
