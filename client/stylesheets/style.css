@@ -49,3 +49,5 @@ footer > .content {
 
 .side-nav a {color: #FFF !important;}
 .side-nav {background-color: #505050 !important;}
+
+#sidenav-overlay {display:none !important;}
