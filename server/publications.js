@@ -1,5 +1,5 @@
 Meteor.startup(function () {
   Meteor.publish("bearchat", function () {
-    return BearChat.find();
+    return BearChat.find({}, {sort: {createdAt: -1}, limit: 8});
   });
 }); 

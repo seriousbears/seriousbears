@@ -10,13 +10,7 @@
           </ul>
         </div>
       </div>
-      <h1>Serious Dev</h1>
-      <p>
-        Welcome to the Serious Bears Development Instance. The future of Bears is here.    
-      </p>
-      <p>
-        2016, Year of the Bear. #woo
-      </p>
+      <h1>Live Feed</h1>
       {{> bearchat}}
     </div>
   </div>
@@ -24,6 +18,6 @@
 
 <template name="bearchat">
   {{#each livefeed}}
-  <p>{{message}}</p>
+  <p><b>{{from}} :</b> {{message}}</p>
   {{/each}}
 </template>
