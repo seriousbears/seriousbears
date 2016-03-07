@@ -1,0 +1,29 @@
+// If you want to override materialize sass variables you can uncomment the following:
+@import "{poetic:materialize-scss}/sass/components/_color.scss";
+
+$primary-color:        #55497F;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+$primary-color-text:   #FFFFFF;
+
+$secondary-color: #87182A !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+$link-color: color("light-blue", "darken-1") !default;
+
+$accent-color:         #87182A;
+$primary-text-color:   #212121;
+$secondary-text-color: #727272;
+$divider-color:        #B6B6B6;
+
+@if not $primary-color-light {
+  $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+  $primary-color-dark: darken($primary-color, 15%);
+}
+
+$button-floating-background: $secondary-color !default;
+
+// import main scss file
+@import "{poetic:materialize-scss}/sass/materialize.scss";
