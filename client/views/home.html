@@ -17,6 +17,13 @@
       <p>
         2016, Year of the Bear. #woo
       </p>
+      {{> bearchat}}
     </div>
   </div>
+</template>
+
+<template name="bearchat">
+  {{#each livefeed}}
+  <p>{{message}}</p>
+  {{/each}}
 </template>
