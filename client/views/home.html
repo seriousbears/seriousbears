@@ -1,35 +1,50 @@
 <template name="home">
   <div class="container">
     <div class="text-center">
-      <div class="row">
 
-        <div class="col s12">
-          <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#live">Live</a></li>
-            <li class="tab col s3"><a href="#info">Info</a></li>
-            <li class="tab col s3"><a href="#shout">Shout</a></li>
-            <li class="tab col s3 disabled"><a href="#login">Login</a></li>
-          </ul>
-        </div>
-
-        <div id="live" class="col s12">
-          <!--<center><h5><b>#seriousbears</b> @ irc.quakenet.org</h5></center>-->
-          {{> bearchat}}
-        </div>
-
-        <div id="info" class="col s12">
-          {{> info}}
-        </div>
-
-        <div id="shout" class="col s12">
-          {{> shout}}
-        </div>
-
-        <div id="login" class="col s12">
-          LOGIN PAGE PLACEHOLDER
-        </div>
-
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active" href="#live">Live</a></li>
+          <li class="tab col s3"><a href="#info">Info</a></li>
+          <li class="tab col s3"><a href="#shout">Shout</a></li>
+          <!-- <li class="tab col s3 disabled"><a href="#login">Login</a></li> -->
+        </ul>
       </div>
+
+      <div id="live" class="col s3">
+        <!-- this encapsulation pattern is necessary for hidden viewport scrolling without display bar -->
+        <div class="outer-container">
+          <div class="inner-container">
+            <div class="primary-viewport">
+              <!--<center><h5><b>#seriousbears</b> @ irc.quakenet.org</h5></center>-->
+              {{> bearchat}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="info" class="col s3">
+        <!-- this encapsulation pattern is necessary for hidden viewport scrolling without display bar -->
+        <div class="outer-container">
+          <div class="inner-container">
+            <div class="primary-viewport">
+              {{> info}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="shout" class="col s3">
+        <!-- this encapsulation pattern is necessary for hidden viewport scrolling without display bar -->
+        <div class="outer-container">
+          <div class="inner-container">
+            <div class="primary-viewport">
+              {{> shout}}
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

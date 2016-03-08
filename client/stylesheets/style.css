@@ -55,3 +55,23 @@ footer > .content {
 .side-nav {background-color: #505050 !important;}
 
 #sidenav-overlay {display:none !important;}
+
+/* DOM HACK for restricted scrolling dynamic containers */
+
+.primary-viewport, .outer-container {
+  height: 300px;
+}
+
+.outer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.inner-container::-webkit-scrollbar {
+  display: none;
+}
