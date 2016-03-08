@@ -1,5 +1,6 @@
 IRC = {};
 
+/*
 Meteor.startup(function () {
 
   _addListener = function(callback) {
@@ -33,3 +34,5 @@ Meteor.startup(function () {
   });
 
 });
+
+*/
