@@ -5,15 +5,14 @@ html {
 
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif /*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
-  background: #ffffff url(/imgs/WILLBG90.png) no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
   margin: 0px;
   /* Margin bottom by footer height */
   margin-bottom: 70px;
   padding: 0px;
   color: #555555;
   min-width: 320px;
+  background: url('/imgs/WILLBG90.png') no-repeat fixed;
+  background-position:center 70px;
 }
 
 footer {
