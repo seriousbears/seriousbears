@@ -75,3 +75,9 @@ footer > .content {
 .inner-container::-webkit-scrollbar {
   display: none;
 }
+
+/* DOM HACK to fix scroll bar on desktop tab buttons */
+.tabs {
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
