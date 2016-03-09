@@ -81,3 +81,17 @@ footer > .content {
   overflow-y: hidden !important;
   overflow-x: hidden !important;
 }
+
+/* DOM HACK to fix toast container stack order */
+
+#toast-container {
+  z-index: 10 !important;
+  min-width: 100% !important;
+  bottom: 0% !important;
+}
+
+.toast {
+  min-height: 50px !important;
+  background-color: #BBA588 !important;
+  color: #000 !important;
+}

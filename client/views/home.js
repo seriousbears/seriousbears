@@ -2,9 +2,9 @@ Template.home.rendered = function () {
   $(document).ready(function(){
     $('ul.tabs').tabs();
     // good lord.. it finally works
-    $('.primary-viewport, .outer-container').height($(window).height() - 120);
+    $('.primary-viewport, .outer-container').height($(window).height() - 98);
     $( window ).resize(function() {
-      $('.primary-viewport, .outer-container').height($(window).height() - 120);
+      $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
   });
 };
@@ -16,7 +16,8 @@ Template.home.events({
     var audioElement = $('#bearstream');
     if (audioElement[0].paused) {
       audioElement[0].src = "http://radio.seriousbears.net:8000/seriousbears.mp3";
-      audioElement[0].play();
+      audioElement[0].play();      
+      Materialize.toast('Our live audio stream is now loading, please wait... <3', 5000);
     } else {
       audioElement[0].src = "";
       audioElement[0].load();
