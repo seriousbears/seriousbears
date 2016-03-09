@@ -1,39 +1,50 @@
 <template name="shout">
+  <h5>How can we help you?</h5>
+  <p>Get in touch quickly by using one of our Bear-bones communication services below!</p>
 
-  <div class="text-center">
-      <h5>How can we help you?</h5>
-      <p>Get in touch quickly by using one of our Bear-bones communication services below!</p>
+  <div class="section">
+    <form class="col s12">
 
-    <div class="section">
-      <div class="card small">
-        <div class="card-image">
-          <img src="/imgs/screamingbear.png">
-          <span class="card-title">SHOUTOUT</span>
+      <div class="row">
+
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="bear_name" type="text" class="validate">
+          <label for="bear_name">Bear Name</label>
         </div>
-        <div class="card-content">
-          <p>Got beef? Special dedications? Senseless trolling?</p>
-        </div>
-        <div class="card-action">
-          <a href="/">REQUEST A SHOUTOUT</a>
+
+        <div class="input-field col s6">
+          <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Shoutout</option>
+            <option value="2">Request</option>
+            <option value="3">Senseless Trolling</option>
+          </select>
+          <label>Category</label>
+        </div>  
+
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="textarea1" class="materialize-textarea validate"></textarea>
+          <label for="textarea1">Message</label>
         </div>
       </div>
-    </div>
 
-    <div class="section">
-      <div class="card small">
-        <div class="card-image">
-          <img src="/imgs/handraisebear.PNG">
-          <span class="card-title">REQUEST</span>
-        </div>
-        <div class="card-content">
-          <p>Favorite Chewn? Favorite Old Mix? Risk Astley?</p>
-        </div>
-        <div class="card-action">
-          <a href="/">REQUEST A SONG</a>
-        </div>
+      <div class="section">
+        <h5>Prove it</h5>
+        {{> reCAPTCHA}}
       </div>
-    </div>
 
+      <div class="section">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+
+    </form>
   </div>
 
 </template>
