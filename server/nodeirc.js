@@ -2,6 +2,11 @@ IRC = {};
 
 Meteor.startup(function () {
 
+  // init reCaptcha
+  reCAPTCHA.config({
+    privatekey: '6LeuahoTAAAAAKHnENaDOI6KecpzLMmxsycVQdsc'
+  });
+
   _addListener = function(callback) {
     IRC = new irc.Client('irc.quakenet.org', 'WilliamtonBear', {
       channels: ['#seriousbears'],
@@ -29,6 +34,24 @@ Meteor.startup(function () {
     youClickedMe: function () {
       IRC.say('#seriousbears', "WHY WOULD YOU PRESS THE BUTTON?!!??!");
       return;
+    }, 
+
+    formSubmissionMethod: function(formData, captchaData) {
+
+      var getClientIP = this.connection.clientAddress;
+      var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+
+      if (!verifyCaptchaResponse.success) {
+        console.log('reCAPTCHA check failed!', verifyCaptchaResponse);
+        console.log(getClientIP);
+
+        throw new Meteor.Error(422, 'reCAPTCHA Failed: ' + verifyCaptchaResponse.error);
+      } else
+        console.log('reCAPTCHA verification passed!'); console.log(getClientIP);
+
+      //do stuff with your formData
+
+      return true;
     }
   });
 

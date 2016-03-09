@@ -4,6 +4,7 @@ accounts-google@1.0.6
 accounts-oauth@1.1.8
 accounts-password@1.1.4
 ahref:irc@0.4.0
+altapp:recaptcha@2.0.0
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -36,6 +37,7 @@ fourseven:scss@3.4.1
 geojson-utils@1.0.4
 github@1.1.4
 google@1.1.7
+handlebars@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5

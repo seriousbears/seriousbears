@@ -1,5 +1,7 @@
 Template.home.rendered = function () {
   $(document).ready(function(){
+    // init materialize forms on shout page
+    $('select').material_select();
     $('ul.tabs').tabs();
     // good lord.. it finally works
     $('.primary-viewport, .outer-container').height($(window).height() - 98);
@@ -10,6 +12,7 @@ Template.home.rendered = function () {
 };
 
 Template.home.events({
+
   'click #btn_bearstream': function(){
     console.log("You clicked the bearstream button.");
 
@@ -23,6 +26,28 @@ Template.home.events({
       audioElement[0].load();
     }
 
+  },
+
+  'submit form': function(e) {
+    e.preventDefault();
+
+    var formData = {
+      //get the data from your form fields
+    };
+
+    //get the captcha data
+    var captchaData = grecaptcha.getResponse();
+
+    Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
+      // reset the captcha
+      grecaptcha.reset();
+
+      if (error) {
+        console.log('There was an error: ' + error.reason);
+      } else {
+        console.log('Success!');
+      }
+    });
   },
 
   'emptied #bearstream': function(){
