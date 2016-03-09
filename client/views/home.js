@@ -15,31 +15,35 @@ Template.home.events({
 
     var audioElement = $('#bearstream');
     if (audioElement[0].paused) {
+      audioElement[0].src = "http://radio.seriousbears.net:8000/seriousbears.mp3";
       audioElement[0].play();
     } else {
-      audioElement[0].pause();
-      audioElement[0].src = "http://radio.seriousbears.net:8000/seriousbears.mp3";
-      audioElement[0].currentTime = 0;
+      audioElement[0].src = "";
+      audioElement[0].load();
     }
 
   },
 
-  'suspend #bearstream': function(){
+  'emptied #bearstream': function(){
+    console.log("The emptied event fired..");
     $( "#btn_icon" ).removeClass();
     $( "#btn_icon" ).addClass("fa fa-volume-up");
   },
-  'play #bearstream': function(){
-    console.log("The play event fired..");
+  'playing #bearstream': function(){
+    console.log("The playing event fired..");
     $( "#btn_icon" ).removeClass();
-    $( "#btn_icon" ).addClass("fa fa-refresh fa-spin");
+    $( "#btn_icon" ).addClass("fa fa-pause");
   },
   'pause #bearstream': function(){
     console.log("The pause event fired..");
   },
+  'waiting #bearstream': function(){
+    console.log("The waiting event fired..");
+    $( "#btn_icon" ).removeClass();
+    $( "#btn_icon" ).addClass("fa fa-refresh fa-spin");
+  },
   'canplay #bearstream': function(){
     console.log("The canplay event fired..");
-    $( "#btn_icon" ).removeClass();
-    $( "#btn_icon" ).addClass("fa fa-pause");
   }
 
 });
