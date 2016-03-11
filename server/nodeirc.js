@@ -50,7 +50,10 @@ Meteor.startup(function () {
         console.log('reCAPTCHA verification passed!'); console.log(getClientIP);
 
       //do stuff with your formData
-
+      console.log(formData.name);
+      console.log(formData.category);
+      console.log(formData.message);
+      IRC.say('#seriousbears', "incoming " + formData.category + " from " + formData.name + ": " +  formData.message);
       return true;
     }
   });
