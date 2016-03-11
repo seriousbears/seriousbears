@@ -1,5 +1,5 @@
 Template.home.rendered = function () {
-  $(document).ready(function(){
+  $(document).ready(function(){  
     // init materialize forms on shout page
     $('select').material_select();
     $('ul.tabs').tabs();
@@ -32,7 +32,10 @@ Template.home.events({
     e.preventDefault();
 
     var formData = {
-      //get the data from your form fields
+      // Get values from form element
+      name: e.target.bear_name.value,
+      category: e.target.bear_category.value,
+      message: e.target.bear_message.value
     };
 
     //get the captcha data
@@ -46,6 +49,10 @@ Template.home.events({
         console.log('There was an error: ' + error.reason);
       } else {
         console.log('Success!');
+        e.target.bear_name.value = "";
+        e.target.bear_category.value = "";
+        e.target.bear_message.value = "";
+        $('#bear_category').material_select();
       }
     });
   },
