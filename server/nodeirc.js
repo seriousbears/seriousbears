@@ -25,7 +25,7 @@ Meteor.startup(function () {
       port: 6667,
       localAddress: null,
       password: "oauth:i8bbl0i7wojnaeqswbinhb2yythlz3",
-      debug: true,
+      debug: false,
       showErrors: true,
       autoRejoin: true,
       autoConnect: true,
