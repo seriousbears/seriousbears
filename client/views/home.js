@@ -53,6 +53,7 @@ Template.home.events({
         e.target.bear_category.value = "";
         e.target.bear_message.value = "";
         $('#bear_category').material_select();
+        $('ul.tabs').tabs('select_tab', 'live');
       }
     });
   },
