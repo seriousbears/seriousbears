@@ -1,1 +1,4 @@
 server/lib/privateglobals.js
+.deploy
+.deploy/mup.json
+.deploy/settings.json
