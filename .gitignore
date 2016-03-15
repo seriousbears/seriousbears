@@ -1,4 +1,6 @@
 server/lib/privateglobals.js
+server/lib/privateProductionGlobals.js
+server/lib/privateDevelopmentGlobals.js
 .deploy
 .deploy/mup.json
 .deploy/settings.json

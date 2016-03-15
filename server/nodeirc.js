@@ -10,14 +10,21 @@ Meteor.startup(function () {
   });
 
   _addQuakeNetListener = function(callback) {
-    QUAKEIRC = new irc.Client('irc.quakenet.org', 'williamBot', {
+    QUAKEIRC = new irc.Client('irc.quakenet.org', 'infoBear', {
       channels: ['#seriousbears'],
     });
 
+    // add listener for QuakeNet messages
     QUAKEIRC.addListener('message', function (from, to, message) {
       console.log(from + ' => ' + to + ': ' + message);
       callback(from, to, message);
     });
+
+    // catch any errors created by QuakeNet
+    QUAKEIRC.addListener('error', function(message) {
+      console.log('error: ', message);
+    });
+
   };
 
   _addTwitchListener = function(callback) {
@@ -49,6 +56,11 @@ Meteor.startup(function () {
       console.log(from + ' => ' + to + ': ' + message);
       callback(from, to, message);
     });
+
+    // catch any errors created by Twitch
+    TWITCHIRC.addListener('error', function(message) {
+      console.log('error: ', message);
+    });
   };
 
   var boundQuakeInsert = Meteor.bindEnvironment(function(from, to, message) {
@@ -67,19 +79,19 @@ Meteor.startup(function () {
       createdAt: new Date(),
       from: from,
       to: to,
-      message: from + " (TTV) => " + message,
+      message: "(TTV) " + from + ": " + message,
     });
     // additionally.. execute IRC bounce in same scope..
     bounceQuakeNet(from, to, message);
   });
 
   function bounceQuakeNet(from, to, message) {
-    QUAKEIRC.say('#seriousbears', from + " (TTV) => " + message);
+    QUAKEIRC.say('#seriousbears', "(TTV) " + from + ": " + message);
     return;
   }
 
   function bounceTwitch(from, to, message) {
-    TWITCHIRC.say('#seriousbears', from + " (QUAKENET) => " + message);
+    TWITCHIRC.say('#seriousbears', "(QNET) " + from + ": " + message);
     return;
   }
 
