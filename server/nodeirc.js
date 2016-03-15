@@ -10,8 +10,10 @@ Meteor.startup(function () {
   });
 
   _addQuakeNetListener = function(callback) {
-    QUAKEIRC = new irc.Client('irc.quakenet.org', 'infoBear', {
-      channels: ['#seriousbears'],
+    QUAKEIRC = new irc.Client('irc.quakenet.org', _QuakeNetNickname, {
+      debug: false,
+      showErrors: true,
+      channels: _QuakeNetChannelArray,
     });
 
     // add listener for QuakeNet messages
@@ -28,7 +30,7 @@ Meteor.startup(function () {
   };
 
   _addTwitchListener = function(callback) {
-    TWITCHIRC = new irc.Client('irc.twitch.tv', 'seriousbears', {
+    TWITCHIRC = new irc.Client('irc.twitch.tv', _TwitchNickname, {
       port: 6667,
       localAddress: null,
       password: _privateGlobalTwitchOAUTH, // redacted from git repo.. string value of Twitch OAUTH
@@ -36,10 +38,10 @@ Meteor.startup(function () {
       showErrors: true,
       autoRejoin: true,
       autoConnect: true,
-      nick: 'seriousbears',
-      userName: 'seriousbears',
+      nick: _TwitchNickname,
+      userName: _TwitchNickname,
       realName: 'SeriousBears IRC Boucner',
-      channels: ['#seriousbears'],
+      channels: _TwitchChannelArray,
       secure: false,
       selfSigned: false,
       certExpired: false,
@@ -86,12 +88,12 @@ Meteor.startup(function () {
   });
 
   function bounceQuakeNet(from, to, message) {
-    QUAKEIRC.say('#seriousbears', "(TTV) " + from + ": " + message);
+    QUAKEIRC.say(_QuakeNetChannelString, "(TTV) " + from + ": " + message);
     return;
   }
 
   function bounceTwitch(from, to, message) {
-    TWITCHIRC.say('#seriousbears', "(QNET) " + from + ": " + message);
+    TWITCHIRC.say(_TwitchChannelString, "(QNET) " + from + ": " + message);
     return;
   }
 
@@ -117,7 +119,7 @@ Meteor.startup(function () {
       console.log(formData.name);
       console.log(formData.category);
       console.log(formData.message);
-      QUAKEIRC.say('#seriousbears', "incoming " + formData.category + " from " + formData.name + ": " + formData.message);
+      QUAKEIRC.say(_QuakeNetChannelString, "incoming " + formData.category + " from " + formData.name + ": " + formData.message);
       return true;
     }
   });
