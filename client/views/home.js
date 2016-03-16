@@ -8,7 +8,12 @@ Template.home.rendered = function () {
     $( window ).resize(function() {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
-    $(".primary-viewport").niceScroll();
+    $(".primary-viewport").niceScroll({
+      smoothscroll: false, // scroll with ease movement
+      preventmultitouchscrolling: true,
+      touchbehavior: false,
+      hwacceleration: false, 
+    });
   });
 };
 
