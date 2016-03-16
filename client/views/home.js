@@ -8,6 +8,7 @@ Template.home.rendered = function () {
     $( window ).resize(function() {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
+    $(".primary-viewport").niceScroll();
   });
 };
 
@@ -26,6 +27,21 @@ Template.home.events({
       audioElement[0].load();
     }
 
+  },
+
+  'click #infotab': function(){
+    console.log("You clicked the information tab.");
+    $("body").css("background", "none");
+  },
+
+  'click #shouttab': function(){
+    console.log("You clicked the shout tab.");
+    $("body").css("background", "none");
+  },
+
+  'click #livetab': function(){
+    console.log("You clicked the live tab.");
+    $("body").css("background", "url('/imgs/WILLBG90.png') no-repeat center center fixed");
   },
 
   'submit form': function(e) {
