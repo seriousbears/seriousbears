@@ -3,30 +3,32 @@
   <p>Get in touch quickly by using one of our Bear-bones communication services below!</p>
 
   <div class="section">
-    <form class="col s12">
+    <form id="shoutform" class="validate col s12">
 
       <div class="row">
 
         <div class="input-field col s6">
-          <input name="bear_name" id="bear_name" type="text" class="validate">
+          <input name="bear_name" id="bear_name" type="text" class="validate" data-min=6 data-max=16 data-alphanumeric data-onblur data-required>
+          <span class='err-msg'></span>
           <label for="bear_name">Bear Name</label>
         </div>
 
         <div class="input-field col s6">
-          <select name="bear_category" id="bear_category">
+          <select name="bear_category" id="bear_category" class="validate" data-onblur data-required>
             <option value="" disabled selected>Select One</option>
             <option value="shout">Shoutout</option>
             <option value="request">Request</option>
             <option value="troll">Senseless Trolling</option>
           </select>
-          <label>Category</label>
+          <label>Category</label>  
         </div>  
 
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <textarea name="bear_message" id="bear_message" class="materialize-textarea validate"></textarea>
+          <textarea name="bear_message" id="bear_message" class="materialize-textarea validate" data-min=6 data-max=200 data-onblur data-required></textarea>
+          <span class='err-msg'></span>
           <label for="bear_message">Message</label>
         </div>
       </div>

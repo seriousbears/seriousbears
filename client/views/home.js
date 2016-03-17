@@ -51,32 +51,42 @@ Template.home.events({
 
   'submit form': function(e) {
     e.preventDefault();
+    var isValid = ValidateForm.validate('#shoutform');
+    if (!isValid){
+      console.log("submission blocked..");
+      swal("Bear with us!", "Please complete all of the fields above prior to submission.", "error");
+      return;
+    }else if (isValid){
 
-    var formData = {
-      // Get values from form element
-      name: e.target.bear_name.value,
-      category: e.target.bear_category.value,
-      message: e.target.bear_message.value
-    };
+      var formData = {
+        // Get values from form element
+        name: e.target.bear_name.value,
+        category: e.target.bear_category.value,
+        message: e.target.bear_message.value
+      };
 
-    //get the captcha data
-    var captchaData = grecaptcha.getResponse();
+      //get the captcha data
+      var captchaData = grecaptcha.getResponse();
+      
+      Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
+        // reset the captcha
+        grecaptcha.reset();
 
-    Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
-      // reset the captcha
-      grecaptcha.reset();
+        if (error) {
+          console.log('There was an error: ' + error.reason);
+          swal("Bear with us!", "The human verification was unsuccessful. Check the reCaptcha box and try again.", "error");
+        } else {
+          console.log('Success!');
+          e.target.bear_name.value = "";
+          e.target.bear_category.value = "";
+          e.target.bear_message.value = "";
+          $('#bear_category').material_select();
+          $('ul.tabs').tabs('select_tab', 'live');
+        }
+      });
 
-      if (error) {
-        console.log('There was an error: ' + error.reason);
-      } else {
-        console.log('Success!');
-        e.target.bear_name.value = "";
-        e.target.bear_category.value = "";
-        e.target.bear_message.value = "";
-        $('#bear_category').material_select();
-        $('ul.tabs').tabs('select_tab', 'live');
-      }
-    });
+    }else{console.log("**VALIDATION** something bad happened.")}
+
   },
 
   'emptied #bearstream': function(){

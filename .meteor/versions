@@ -53,6 +53,7 @@ iron:router@1.0.12
 iron:url@1.0.11
 jackyqiu:meteor-jquery-nicescroll@3.6.0
 jquery@1.11.4
+kevohagan:sweetalert@1.0.0
 launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5
@@ -85,6 +86,7 @@ sacha:spin@2.3.1
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
+skinnygeek1010:validate-form@0.4.0
 softwarerero:accounts-t9n@1.1.7
 spacebars@1.0.7
 spacebars-compiler@1.0.7
