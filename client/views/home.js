@@ -49,6 +49,11 @@ Template.home.events({
     $("body").css("background", "url('/imgs/WILLBG90.png') no-repeat center center fixed");
   },
 
+  'click #followtab': function(){
+    console.log("You clicked the follow tab.");
+    $("body").css("background", "none");
+  },
+
   'submit form': function(e) {
     e.preventDefault();
     var isValid = ValidateForm.validate('#shoutform');
@@ -67,7 +72,7 @@ Template.home.events({
 
       //get the captcha data
       var captchaData = grecaptcha.getResponse();
-      
+
       Meteor.call('formSubmissionMethod', formData, captchaData, function(error, result) {
         // reset the captcha
         grecaptcha.reset();

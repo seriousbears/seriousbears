@@ -99,3 +99,8 @@ footer > .content {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+.err-msg {
+  color:red ;
+  font-weight: bold;
+}

@@ -1,48 +1,46 @@
 <template name="shout">
-  <h5>How can we help you?</h5>
-  <p>Get in touch quickly by using one of our Bear-bones communication services below!</p>
+  <h5>Say Something</h5>
+  <p><i>Fill out the fields below and press submit!</i></p>
+  <form id="shoutform" class="validate col s12">
 
-  <div class="section">
-    <form id="shoutform" class="validate col s12">
+    <div class="row">
 
-      <div class="row">
+      <div class="input-field col s6">
+        <input name="bear_name" id="bear_name" type="text" data-min=6 data-max=16 data-alphanumeric data-onblur data-required />
+        <span class='err-msg'></span>
+        <label for="bear_name">Bear Name</label>
+      </div>
 
-        <div class="input-field col s6">
-          <input name="bear_name" id="bear_name" type="text" class="validate" data-min=6 data-max=16 data-alphanumeric data-onblur data-required>
-          <span class='err-msg'></span>
-          <label for="bear_name">Bear Name</label>
-        </div>
-
-        <div class="input-field col s6">
-          <select name="bear_category" id="bear_category" class="validate" data-onblur data-required>
+      <div class="input-field col s6">
+        <div class="form-group">
+          <select name="bear_category" id="bear_category" data-onblur data-required>
             <option value="" disabled selected>Select One</option>
             <option value="shout">Shoutout</option>
             <option value="request">Request</option>
             <option value="troll">Senseless Trolling</option>
           </select>
-          <label>Category</label>  
-        </div>  
-
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea name="bear_message" id="bear_message" class="materialize-textarea validate" data-min=6 data-max=200 data-onblur data-required></textarea>
           <span class='err-msg'></span>
-          <label for="bear_message">Message</label>
         </div>
+      </div>  
+
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="bear_message" id="bear_message" class="materialize-textarea" data-min=6 data-max=200 data-onblur data-required></textarea>
+        <span class='err-msg'></span>
+        <label for="bear_message">Message</label>
       </div>
+    </div>
 
-      <h5>Prove it</h5>
-      {{> reCAPTCHA}}
+    {{> reCAPTCHA}}
 
-      <div class="section">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
+    <div class="section">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
 
-    </form>
-  </div>
+  </form>
 
 </template>
