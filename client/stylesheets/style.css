@@ -89,7 +89,7 @@ footer > .content {
 /* DOM HACK to fix toast container stack order */
 
 #toast-container {
-  z-index: 10 !important;
+  z-index: 99999 !important;
   min-width: 100% !important;
   bottom: 0% !important;
 }
