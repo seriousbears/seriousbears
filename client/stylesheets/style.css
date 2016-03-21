@@ -81,6 +81,11 @@ footer > .content {
   overflow-x: hidden !important;
 }
 
+/* DOM HACK to fix tab scaling on iPhone5 Sized (tiny) device displays */
+.tabs .tab {
+  min-width: 60px !important;  
+}
+
 /* DOM HACK to fix toast container stack order */
 
 #toast-container {
@@ -103,4 +108,9 @@ footer > .content {
 .err-msg {
   color:red ;
   font-weight: bold;
+}
+
+/* DOM HACK - Over Ride default floating button color.. slightly darker gradient */
+.btn-floating {
+  background-color: #691321 !important;
 }
