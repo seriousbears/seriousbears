@@ -114,3 +114,12 @@ footer > .content {
 .btn-floating {
   background-color: #691321 !important;
 }
+
+/* DOM HACK - Fix reCapcha width scale problem for tiny devices */
+
+#g-recaptcha {
+  transform:scale(0.85);
+  -webkit-transform:scale(0.85);
+  transform-origin:0 0;
+  -webkit-transform-origin:0 0;
+}
