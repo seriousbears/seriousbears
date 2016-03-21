@@ -9,30 +9,15 @@ Template.home.rendered = function () {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
     $(".primary-viewport").niceScroll({
-      smoothscroll: false, // scroll with ease movement
+      smoothscroll: true, // scroll with ease movement
       preventmultitouchscrolling: true,
       touchbehavior: false,
-      hwacceleration: false, 
+      hwacceleration: true, 
     });
   });
 };
 
 Template.home.events({
-
-  'click #btn_bearstream': function(){
-    console.log("You clicked the bearstream button.");
-
-    var audioElement = $('#bearstream');
-    if (audioElement[0].paused) {
-      audioElement[0].src = "http://radio.seriousbears.net:8000/seriousbears.mp3";
-      audioElement[0].play();      
-      Materialize.toast('Our live audio stream is now loading, please wait... <3', 5000);
-    } else {
-      audioElement[0].src = "";
-      audioElement[0].load();
-    }
-
-  },
 
   'click #infotab': function(){
     console.log("You clicked the information tab.");
@@ -91,6 +76,20 @@ Template.home.events({
       });
 
     }else{console.log("**VALIDATION** something bad happened.")}
+
+  },
+
+  'click #btn_bearstream': function(){
+    console.log("You clicked the bearstream button.");
+
+    var audioElement = $('#bearstream');
+
+    if (audioElement[0].paused) {
+      audioElement[0].play();
+      Materialize.toast('Our live audio stream is now loading, please wait... <3', 5000);
+    } else {
+      audioElement[0].load();
+    }
 
   },
 
