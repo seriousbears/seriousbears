@@ -1,5 +1,5 @@
 Template.home.rendered = function () {
-  $(document).ready(function(){  
+  $(document).ready(function(){
     // init materialize forms on shout page
     $('select').material_select();
     $('ul.tabs').tabs();
@@ -8,17 +8,12 @@ Template.home.rendered = function () {
     $( window ).resize(function() {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
-    $(".primary-viewport").mCustomScrollbar({
-      autoHideScrollbar: true, 
-      scrollInertia: 0,
-      autoDraggerLength: false,
-      documentTouchScroll: true,
-      theme:"minimal-dark",
-      mouseWheel:{
-        deltaFactor: 20,
-        scrollAmount: 40,
-        normalizeDelta: false
-      }
+    $('.primary-viewport').slimScroll({
+      height: 'auto',
+      railOpacity: '0.1',
+      railVisible: 'true',
+      color: '#55497F',
+      touchScrollStep: '300',
     });
   });
 };
