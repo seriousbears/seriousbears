@@ -8,11 +8,17 @@ Template.home.rendered = function () {
     $( window ).resize(function() {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
     });
-    $(".primary-viewport").niceScroll({
-      smoothscroll: true, // scroll with ease movement
-      preventmultitouchscrolling: true,
-      touchbehavior: false,
-      hwacceleration: true, 
+    $(".primary-viewport").mCustomScrollbar({
+      autoHideScrollbar: true, 
+      scrollInertia: 0,
+      autoDraggerLength: false,
+      documentTouchScroll: true,
+      theme:"minimal-dark",
+      mouseWheel:{
+        deltaFactor: 20,
+        scrollAmount: 40,
+        normalizeDelta: false
+      }
     });
   });
 };
