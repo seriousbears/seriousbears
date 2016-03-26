@@ -61,8 +61,8 @@ footer > .content {
 
 /* DOM HACK for restricted scrolling dynamic containers */
 
-.primary-viewport, .outer-container {
-  height: 300px;
+.primary-viewport{
+padding-right: 10px;
 }
 
 .outer-container {

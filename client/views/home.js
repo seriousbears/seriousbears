@@ -11,7 +11,6 @@ Template.home.rendered = function () {
     $('.primary-viewport').slimScroll({
       height: 'auto',
       railOpacity: '0.1',
-      railVisible: 'true',
       color: '#55497F',
       touchScrollStep: '300',
     });
