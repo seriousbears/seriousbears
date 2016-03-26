@@ -7,12 +7,14 @@ Template.home.rendered = function () {
     $('.primary-viewport, .outer-container').height($(window).height() - 98);
     $( window ).resize(function() {
       $('.primary-viewport, .outer-container').height($(window).height() - 98);
+      $('#scrollDiv').height($(window).height() - 98);
+      $('.slimScrollDiv').height($(window).height() - 98);
     });
     $('.primary-viewport').slimScroll({
       height: 'auto',
       railOpacity: '0.1',
       color: '#55497F',
-      touchScrollStep: '300',
+      touchScrollStep: '100',
     });
   });
 };
