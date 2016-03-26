@@ -88,7 +88,7 @@ Template.home.events({
 
     if (audioElement[0].paused) {
       audioElement[0].play();
-      Materialize.toast('Our live audio stream is now loading, please wait... <3', 5000);
+      Materialize.toast('<b>Our live audio stream is now loading...</b>', 5000);
     } else {
       audioElement[0].load();
     }
