@@ -1,5 +1,6 @@
 Template.home.rendered = function () {
   $(document).ready(function(){
+    $("body").css("background", "url('/imgs/WILLBG90.png') no-repeat center center fixed");
     // init materialize forms on shout page
     $('select').material_select();
     $('ul.tabs').tabs();
